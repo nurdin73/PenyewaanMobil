@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'phone_number',
+        'no_sim'
     ];
 
     /**
@@ -42,4 +45,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function cars()
+    {
+        return $this->hasMany(Car::class, 'id', 'owner_id');
+    }
 }
